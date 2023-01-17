@@ -41,7 +41,7 @@ const Home = () => {
     ],
   };
   return (
-    <div className="h-full md:h-screen">
+    <div className="h-full">
       <div className="flex flex-col md:flex-row items-center p-10 gap-5">
         <div className="bg-green-500 hover:bg-green-700 text-white w-full h-40 flex flex-col justify-center items-center text-2xl font-bold rounded-md gap-4 text-center cursor-pointer">
           <div className="text-3xl">
@@ -69,15 +69,54 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex justify-between items-cener p-10">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 overflow-hidden">
-          <div className="border-2 border-black flex justify-center items-center p-4 w-full md:w-[100vh] md:h-[50vh]">
+      <div className="flex justify-between items-cener p-10 ">
+        <div className="flex flex-wrap w-full gap-2">
+          <div className="rounded-md border-2 border-black flex justify-center items-center p-4 w-full md:w-[49%] ">
             <Line data={state} />
           </div>
-          {/* <div className="flex flex-col">
-              <div>one</div>
-              <div>one</div>
-          </div> */}
+
+          <div className="flex w-full md:w-[49%] md:h-[60vh]">
+            <div className="border-2 border-black w-full mb-2 p-5 rounded-md h-full">
+              <h3>Quick member adding</h3>
+
+              <form action="" className=" flex flex-col">
+                <div className="flex flex-wrap gap-4 p-6">
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="First name"
+                    className="border-2 border-black p-2 bg-slate-100 rounded-md w-full"
+                  />
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="Last name"
+                    className="border-2 border-black p-2 bg-slate-100 rounded-md w-full"
+                  />
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="Phone number"
+                    className="border-2 border-black p-2 bg-slate-100 rounded-md w-full"
+                  />
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="Email"
+                    className="border-2 border-black p-2 bg-slate-100 rounded-md w-full"
+                  />
+                <div className="bg-blue-500 w-full md:w-20 h-10 font-bold flex justify-center items-center text-white rounded-md hover:bg-blue-700 cursor-pointer">
+                  <button>Add</button>
+                </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
