@@ -4,9 +4,8 @@ import { RiAdminLine } from "react-icons/ri";
 import { BiTime } from "react-icons/bi";
 import { FiAlertTriangle } from "react-icons/fi";
 import { Line } from "react-chartjs-2";
-import { Bar } from "react-chartjs-2";
-import { Bubble } from "react-chartjs-2";
 import { Chart as ChartJS, registerables } from "chart.js";
+import {Link} from 'react-router-dom'
 ChartJS.register(...registerables);
 
 const Home = () => {
@@ -28,7 +27,7 @@ const Home = () => {
     datasets: [
       {
         label: "yearly Profit DH",
-        pointRadius: 10,
+        pointRadius: 5,
         lineTension: 0.5,
         backgroundColor: "#0ea5e9",
         borderColor: "rgba(0,0,0,1)",
@@ -43,12 +42,14 @@ const Home = () => {
   return (
     <div className="h-full">
       <div className="flex flex-col md:flex-row items-center p-10 gap-5">
+        <Link to='/members' className="w-full">
         <div className="bg-green-500 hover:bg-green-700 text-white w-full h-40 flex flex-col justify-center items-center text-2xl font-bold rounded-md gap-4 text-center cursor-pointer">
           <div className="text-3xl">
             <SlPeople />
           </div>
           <h1>2 Members</h1>
         </div>
+        </Link>
         <div className="bg-blue-500 hover:bg-blue-700 text-white w-full h-40 flex flex-col justify-center items-center text-2xl font-bold rounded-md gap-4 text-center cursor-pointer">
           <div className="text-3xl">
             <RiAdminLine />
@@ -70,16 +71,18 @@ const Home = () => {
       </div>
 
       <div className="flex justify-between items-cener p-10 ">
-        <div className="flex flex-wrap w-full gap-2">
-          <div className="rounded-md border-2 border-black flex justify-center items-center p-4 w-full md:w-[49%] ">
+        <div className="flex flex-col md:flex-row w-full gap-2">
+          <div className="rounded-md border-2 border-black flex justify-center items-center p-4 w-full md:w-[50%] ">
             <Line data={state} />
           </div>
 
-          <div className="flex w-full md:w-[49%] md:h-[60vh]">
+          <div className="flex w-full md:w-[50%] ">
             <div className="border-2 border-black w-full mb-2 p-5 rounded-md h-full">
-              <h3>Quick member adding</h3>
+              <div>
+                <h3>Quick member adding</h3>
+              </div>
 
-              <form action="" className=" flex flex-col">
+              <form action="" onSubmit={(e) => e.preventDefault()}>
                 <div className="flex flex-wrap gap-4 p-6">
                   <input
                     type="text"
@@ -109,11 +112,10 @@ const Home = () => {
                     placeholder="Email"
                     className="border-2 border-black p-2 bg-slate-100 rounded-md w-full"
                   />
-                <div className="bg-blue-500 w-full md:w-20 h-10 font-bold flex justify-center items-center text-white rounded-md hover:bg-blue-700 cursor-pointer">
-                  <button>Add</button>
+                  <div className="bg-blue-500 w-full md:w-20 h-10 font-bold flex justify-center items-center text-white rounded-md hover:bg-blue-700 cursor-pointer">
+                    <button>Add</button>
+                  </div>
                 </div>
-                </div>
-
               </form>
             </div>
           </div>
