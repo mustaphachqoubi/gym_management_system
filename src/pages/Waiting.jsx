@@ -5,8 +5,10 @@ import { HiOutlinePencil } from "react-icons/hi";
 import { FiTrash2, FiArchive } from "react-icons/fi";
 import { members } from "../dummy";
 import { Link } from "react-router-dom";
+import { BiTime } from "react-icons/bi"
 
-const Members_should_pay = () => {
+
+const Wait = () => {
   const [moreBtn, setMoreBtn] = useState("hidden");
   const [selectedUser, setSelectedUser] = useState(null);
 
@@ -43,7 +45,7 @@ const Members_should_pay = () => {
           <div className="flex flex-col relative">
             {members.map(
               (member) =>
-                member.payed === false && (
+                member.payed === 'wait' && (
                   <div
                     key={member.id}
                     className="flex p-10 items-center border-b relative hover:bg-slate-200"
@@ -83,16 +85,11 @@ const Members_should_pay = () => {
                           {member.membership}
                         </div>
                       )}
-                      {member.payed === true ? (
-                        <div className="hidden md:flex gap-1 items-center justify-center h-10 w-20 bg-green-500 text-green-900 font-bold rounded-md">
-                          <AiFillCheckCircle />
-                          <h1>Yes</h1>
-                        </div>
-                      ) : (
-                        <div className="hidden md:flex gap-1 items-center justify-center h-10 w-20 bg-red-500 text-red-900 font-bold rounded-md">
-                          <AiFillCloseCircle />
-                          <h1>No</h1>
-                        </div>
+                      {member.payed === 'wait' && (
+                        <div className="hidden md:flex gap-1 items-center justify-center h-10 w-20 bg-orange-500 text-orange-900 font-bold rounded-md">
+                        <BiTime />
+                        <h1>Wait</h1>
+                      </div>
                       )}
 
                       <div
@@ -146,4 +143,4 @@ const Members_should_pay = () => {
   );
 };
 
-export default Members_should_pay;
+export default Wait;

@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from "react";
 import { SlPeople } from "react-icons/sl";
 import { RiAdminLine } from "react-icons/ri";
-import { BiNoEntry, BiTime } from "react-icons/bi";
+import { BiTime } from "react-icons/bi";
 import { FiAlertTriangle } from "react-icons/fi";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, registerables } from "chart.js";
 import {Link} from 'react-router-dom'
 import {members} from '../dummy'
 import {stuff} from '../dummy'
+
 ChartJS.register(...registerables);
 
 const Home = () => {
@@ -54,18 +55,22 @@ const Home = () => {
           <h1>{members.length} {members.length === 1 ? "Member" : "Members"}</h1>
         </div>
         </Link>
+        <Link to='/stuff' className="w-full">
         <div className="bg-blue-500 hover:bg-blue-700 text-white w-full h-40 flex flex-col justify-center items-center text-2xl font-bold rounded-md gap-4 text-center cursor-pointer">
           <div className="text-3xl">
             <RiAdminLine />
           </div>
           <h1>{stuff.length} {stuff.length === 1 ? "Stuff" : "Stuffs"}</h1>
         </div>
+        </Link>
+        <Link to='/wait' className="w-full">
         <div className="bg-yellow-500 hover:bg-yellow-700 text-white w-full h-40 flex flex-col justify-center items-center text-2xl font-bold rounded-md gap-4 text-center cursor-pointer">
           <div className="text-3xl">
             <BiTime />
           </div>
           <h1>5 Waiting</h1>
         </div>
+        </Link>
         <Link to='/members_should_pay' className="w-full">
         <div className="bg-red-500 hover:bg-red-700 text-white w-full h-40 flex flex-col justify-center items-center text-2xl font-bold rounded-md gap-4 text-center cursor-pointer">
           <div className="text-3xl">

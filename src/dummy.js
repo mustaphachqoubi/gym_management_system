@@ -20,7 +20,7 @@ export const members = [
         age: 30,
         gender: 'Female',
         membership: 'Silver',
-        payed: true,
+        payed: 'wait',
         image: 'https://letsenhance.io/static/b8eda2f8914d307d52f725199fb0c5e6/62e7b/MainBefore.jpg'
     },
     {
@@ -53,7 +53,7 @@ export const members = [
         age: 40,
         gender: 'Female',
         membership: 'Golden',
-        payed: true,
+        payed: 'wait',
         image: 'https://letsenhance.io/static/b8eda2f8914d307d52f725199fb0c5e6/62e7b/MainBefore.jpg'
     },
     {
@@ -139,9 +139,29 @@ export const stuff = [
     {
         id: 1,
         firstName: 'Mohammed',
-        lastName: 'Chqoubi',
-        fullname: 'Mustapha chqoubi',
+        lastName: 'Aberchane',
+        fullname: 'Mohammed aberchane',
+        age: 30,
+        gender: 'Male',
+        status: 'admin',
+        image: 'https://letsenhance.io/static/b8eda2f8914d307d52f725199fb0c5e6/62e7b/MainBefore.jpg'
+    },
+    {
+        id: 2,
+        firstName: 'Mohammed',
+        lastName: 'Znad',
+        fullname: 'Mohammed znad',
         age: 26,
+        gender: 'Male',
+        status: 'user',
+        image: 'https://letsenhance.io/static/b8eda2f8914d307d52f725199fb0c5e6/62e7b/MainBefore.jpg'
+    },
+    {
+        id: 3,
+        firstName: 'Ahmed',
+        lastName: 'Aberchane',
+        fullname: 'ahmed aberchane',
+        age: 35,
         gender: 'Male',
         status: 'user',
         image: 'https://letsenhance.io/static/b8eda2f8914d307d52f725199fb0c5e6/62e7b/MainBefore.jpg'

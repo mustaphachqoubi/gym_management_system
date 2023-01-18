@@ -5,6 +5,7 @@ import {
   AiOutlineSearch,
   AiTwotoneFilter,
 } from "react-icons/ai";
+import { BiTime } from "react-icons/bi"
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { HiOutlinePencil } from "react-icons/hi";
 import { IoMdAdd } from "react-icons/io";
@@ -160,12 +161,18 @@ const Members = () => {
                       <AiFillCheckCircle />
                       <h1>Yes</h1>
                     </div>
-                  ) : (
+                  ) : member.payed === false ? (
                     <div className="hidden md:flex gap-1 items-center justify-center h-10 w-20 bg-red-500 text-red-900 font-bold rounded-md">
                       <AiFillCloseCircle />
                       <h1>No</h1>
                     </div>
-                  )}
+                  ) : (
+                    <div className="hidden md:flex gap-1 items-center justify-center h-10 w-20 bg-orange-500 text-orange-900 font-bold rounded-md">
+                      <BiTime />
+                      <h1>Wait</h1>
+                    </div>
+                  )
+                }
 
                   <div
                     onClick={() => {
