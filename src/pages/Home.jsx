@@ -6,6 +6,7 @@ import { FiAlertTriangle } from "react-icons/fi";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, registerables } from "chart.js";
 import {Link} from 'react-router-dom'
+import {members} from '../dummy'
 ChartJS.register(...registerables);
 
 const Home = () => {
@@ -40,14 +41,14 @@ const Home = () => {
     ],
   };
   return (
-    <div className="h-full">
-      <div className="flex flex-col md:flex-row items-center p-10 gap-5">
+    <div className="h-screen">
+      <div className="flex flex-col md:flex-row items-center p-10 gap-5 py-5 ">
         <Link to='/members' className="w-full">
         <div className="bg-green-500 hover:bg-green-700 text-white w-full h-40 flex flex-col justify-center items-center text-2xl font-bold rounded-md gap-4 text-center cursor-pointer">
           <div className="text-3xl">
             <SlPeople />
           </div>
-          <h1>2 Members</h1>
+          <h1>{members.length} Members</h1>
         </div>
         </Link>
         <div className="bg-blue-500 hover:bg-blue-700 text-white w-full h-40 flex flex-col justify-center items-center text-2xl font-bold rounded-md gap-4 text-center cursor-pointer">
@@ -70,7 +71,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex justify-between items-cener p-10 ">
+      <div className="flex justify-between items-cener p-10 py-5">
         <div className="flex flex-col md:flex-row w-full gap-2">
           <div className="rounded-md border-2 border-black flex justify-center items-center p-4 w-full md:w-[50%] ">
             <Line data={state} />
