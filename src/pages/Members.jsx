@@ -21,9 +21,7 @@ const Members = () => {
 
   const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-  useEffect(() => {
-    console.log(selectedUser);
-  }, selectedUser);
+
   return (
     <div className="h-full relative">
       <div className="flex flex-col p-10">
@@ -101,7 +99,7 @@ const Members = () => {
             </div>
           </div>
         </div>
-        <div className="border w-full rounded-md overflow-hidden">
+        <div className="border w-full rounded-md ">
           <div className="bg-gray-300 flex items-center p-8 font-bold relative">
             <div className="absolute left-10">
               <div className="text-gray-500 flex gap-6 md:gap-14 ">
@@ -109,12 +107,12 @@ const Members = () => {
                 <h1>Name</h1>
               </div>
             </div>
-            <div className="text-gray-500 flex gap-5 absolute right-10 ">
-              <h1 className="w-12 hidden md:flex">Age</h1>
-              <h1 className="hidden md:flex">Gender</h1>
-              <h1 className="hidden md:flex">Membership</h1>
-              <h1 className="px-4 hidden md:flex">payed?</h1>
-              <h1 className="px-4">Actions</h1>
+            <div className="text-gray-500 flex gap-4 absolute right-10 ">
+              <h1 className="w-20 hidden md:flex justify-center items-center">Age</h1>
+              <h1 className="w-20 hidden md:flex justify-start items-center">Gender</h1>
+              <h1 className="w-20 hidden md:flex justify-center items-center">Membership</h1>
+              <h1 className="w-20 hidden md:flex justify-center items-center">payed?</h1>
+              <h1 className="w-20 hidden md:flex justify-center items-center">Actions</h1>
             </div>
           </div>
 
@@ -171,7 +169,7 @@ const Members = () => {
 
                   <div
                     onClick={() => {
-                      setMoreBtn("absolute");
+                      moreBtn === 'hidden' ? setMoreBtn("absolute") : setMoreBtn('hidden');
                       setSelectedUser(member.id);
                     }}
                     className="relative hidden md:flex gap-1 items-center justify-center h-10 w-20 cursor-pointer hover:bg-zinc-400 bg-zinc-300 text-zinc-700 font-bold rounded-md"
@@ -182,6 +180,9 @@ const Members = () => {
                 </div>
                 {selectedUser === member.id && (
                     <div
+                    onClick={() => {
+                        moreBtn === 'hidden' ? setMoreBtn("absolute") : setMoreBtn('hidden')
+                      }}
                     className={`${moreBtn} right-20 text-sm top-14 bg-white w-40 h-[16.5vh] border z-50 rounded-md`}
                   >
                     <div className="border-b p-2 font-bold hover:bg-slate-100 cursor-pointer flex justify-between items-center">
@@ -202,7 +203,7 @@ const Members = () => {
             ))}
           </div>
         </div>
-        <Link to="/">
+        <Link to="/" className=" w-full md:w-20 h-0 mb-20">
           <div className="bg-blue-500 hover:bg-blue-700 cursor-pointer w-full md:w-20 h-10 rounded-md text-white font-bold flex justify-center items-center my-5">
             Back
           </div>

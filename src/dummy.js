@@ -1,3 +1,5 @@
+// export const membersShouldPay = []
+
 export const members = [
     {
         id: 1,
@@ -129,6 +131,19 @@ export const members = [
         gender: 'Male',
         membership: 'Golden',
         payed: true,
+        image: 'https://letsenhance.io/static/b8eda2f8914d307d52f725199fb0c5e6/62e7b/MainBefore.jpg'
+    },
+]
+
+export const stuff = [
+    {
+        id: 1,
+        firstName: 'Mohammed',
+        lastName: 'Chqoubi',
+        fullname: 'Mustapha chqoubi',
+        age: 26,
+        gender: 'Male',
+        status: 'user',
         image: 'https://letsenhance.io/static/b8eda2f8914d307d52f725199fb0c5e6/62e7b/MainBefore.jpg'
     },
 ]

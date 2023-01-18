@@ -1,15 +1,17 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { SlPeople } from "react-icons/sl";
 import { RiAdminLine } from "react-icons/ri";
-import { BiTime } from "react-icons/bi";
+import { BiNoEntry, BiTime } from "react-icons/bi";
 import { FiAlertTriangle } from "react-icons/fi";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, registerables } from "chart.js";
 import {Link} from 'react-router-dom'
 import {members} from '../dummy'
+import {stuff} from '../dummy'
 ChartJS.register(...registerables);
 
 const Home = () => {
+
   const state = {
     labels: [
       "01",
@@ -40,6 +42,7 @@ const Home = () => {
       },
     ],
   };
+
   return (
     <div className="h-screen">
       <div className="flex flex-col md:flex-row items-center p-10 gap-5 py-5 ">
@@ -48,14 +51,14 @@ const Home = () => {
           <div className="text-3xl">
             <SlPeople />
           </div>
-          <h1>{members.length} Members</h1>
+          <h1>{members.length} {members.length === 1 ? "Member" : "Members"}</h1>
         </div>
         </Link>
         <div className="bg-blue-500 hover:bg-blue-700 text-white w-full h-40 flex flex-col justify-center items-center text-2xl font-bold rounded-md gap-4 text-center cursor-pointer">
           <div className="text-3xl">
             <RiAdminLine />
           </div>
-          <h1>3 Stuffs</h1>
+          <h1>{stuff.length} {stuff.length === 1 ? "Stuff" : "Stuffs"}</h1>
         </div>
         <div className="bg-yellow-500 hover:bg-yellow-700 text-white w-full h-40 flex flex-col justify-center items-center text-2xl font-bold rounded-md gap-4 text-center cursor-pointer">
           <div className="text-3xl">
@@ -63,12 +66,14 @@ const Home = () => {
           </div>
           <h1>5 Waiting</h1>
         </div>
+        <Link to='/members_should_pay' className="w-full">
         <div className="bg-red-500 hover:bg-red-700 text-white w-full h-40 flex flex-col justify-center items-center text-2xl font-bold rounded-md gap-4 text-center cursor-pointer">
           <div className="text-3xl">
             <FiAlertTriangle />
           </div>
-          <h1>1 should pay</h1>
+          <h1>{0} should pay</h1>
         </div>
+        </Link>
       </div>
 
       <div className="flex justify-between items-cener p-10 py-5">
