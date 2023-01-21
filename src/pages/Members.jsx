@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import {
   AiFillCheckCircle,
   AiFillCloseCircle,
-  AiOutlineSearch,
   AiTwotoneFilter,
 } from "react-icons/ai";
-import { BiTime } from "react-icons/bi"
+import { BiTime } from "react-icons/bi";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { HiOutlinePencil } from "react-icons/hi";
 import { IoMdAdd } from "react-icons/io";
 import { FiTrash2, FiArchive } from "react-icons/fi";
-import { members } from "../dummy";
 import { Link } from "react-router-dom";
+import Search from "../components/Search";
+import { useSelector } from "react-redux";
 
 const Members = () => {
   const [filterSize, setFilterSize] = useState("md:w-40 h-10");
@@ -19,25 +19,14 @@ const Members = () => {
   const [addMemberContent, setAddMemberContent] = useState("hidden");
   const [moreBtn, setMoreBtn] = useState("hidden");
   const [selectedUser, setSelectedUser] = useState(null);
-
   const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-
+  const {membersList} = useSelector(state => state.membersList)
 
   return (
     <div className="h-full relative">
       <div className="flex flex-col p-10">
         <div className="bg-gray-300 w-full rounded-md flex flex-col md:flex-row  gap-4 justify-between items-start my-5 p-10">
-          <div className="flex w-full">
-            <input
-              type="text"
-              className="border-2 border-black w-full bg-gray-300 rounded-l-md py-1 px-4 focus:outline-none placeholder:px-4"
-              placeholder="Search..."
-            />
-            <div className="bg-black text-white text-xl flex justify-center items-center px-4 cursor-pointer rounded-r-md">
-              <AiOutlineSearch />
-            </div>
-          </div>
-
+          <Search />
           <div className="flex gap-4 w-full flex-end justify-end flex-col md:flex-row">
             <div
               className={`relative overflow-hidden flex items-center justify-center gap-2 cursor-pointer bg-gray-400 text-zinc-700 font-bold w-full ${filterSize} rounded-md`}
@@ -109,16 +98,26 @@ const Members = () => {
               </div>
             </div>
             <div className="text-gray-500 flex gap-4 absolute right-10 ">
-              <h1 className="w-20 hidden md:flex justify-center items-center">Age</h1>
-              <h1 className="w-20 hidden md:flex justify-start items-center">Gender</h1>
-              <h1 className="w-20 hidden md:flex justify-center items-center">Membership</h1>
-              <h1 className="w-20 hidden md:flex justify-center items-center">payed?</h1>
-              <h1 className="w-20 hidden md:flex justify-center items-center">Actions</h1>
+              <h1 className="w-20 hidden md:flex justify-center items-center">
+                Age
+              </h1>
+              <h1 className="w-20 hidden md:flex justify-start items-center">
+                Gender
+              </h1>
+              <h1 className="w-20 hidden md:flex justify-center items-center">
+                Membership
+              </h1>
+              <h1 className="w-20 hidden md:flex justify-center items-center">
+                payed?
+              </h1>
+              <h1 className="w-20 hidden md:flex justify-center items-center">
+                Actions
+              </h1>
             </div>
           </div>
 
           <div className="flex flex-col relative">
-            {members.map((member) => (
+            {membersList.map((member) => (
               <div
                 key={member.id}
                 className="flex p-10 items-center border-b relative hover:bg-slate-200"
@@ -171,12 +170,13 @@ const Members = () => {
                       <BiTime />
                       <h1>Wait</h1>
                     </div>
-                  )
-                }
+                  )}
 
                   <div
                     onClick={() => {
-                      moreBtn === 'hidden' ? setMoreBtn("absolute") : setMoreBtn('hidden');
+                      moreBtn === "hidden"
+                        ? setMoreBtn("absolute")
+                        : setMoreBtn("hidden");
                       setSelectedUser(member.id);
                     }}
                     className="relative hidden md:flex gap-1 items-center justify-center h-10 w-20 cursor-pointer hover:bg-zinc-400 bg-zinc-300 text-zinc-700 font-bold rounded-md"
@@ -186,10 +186,12 @@ const Members = () => {
                   </div>
                 </div>
                 {selectedUser === member.id && (
-                    <div
+                  <div
                     onClick={() => {
-                        moreBtn === 'hidden' ? setMoreBtn("absolute") : setMoreBtn('hidden')
-                      }}
+                      moreBtn === "hidden"
+                        ? setMoreBtn("absolute")
+                        : setMoreBtn("hidden");
+                    }}
                     className={`${moreBtn} right-20 text-sm top-14 bg-white w-40 h-[16.5vh] border z-50 rounded-md`}
                   >
                     <div className="border-b p-2 font-bold hover:bg-slate-100 cursor-pointer flex justify-between items-center">

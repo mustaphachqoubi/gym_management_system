@@ -44,6 +44,9 @@ const Home = () => {
     ],
   };
 
+  const waiting = []
+  const shouldPay = []
+
   return (
     <div className="h-screen">
       <div className="flex flex-col md:flex-row items-center p-10 gap-5 py-5 ">
@@ -68,7 +71,7 @@ const Home = () => {
           <div className="text-3xl">
             <BiTime />
           </div>
-          <h1>5 Waiting</h1>
+          <h1>{members.forEach(m => m.payed === 'wait' && waiting.push(m))} {waiting.length} Waiting</h1>
         </div>
         </Link>
         <Link to='/members_should_pay' className="w-full">
@@ -76,7 +79,7 @@ const Home = () => {
           <div className="text-3xl">
             <FiAlertTriangle />
           </div>
-          <h1>{0} should pay</h1>
+          <h1>{members.forEach(m => m.payed === false && shouldPay.push(m))} {shouldPay.length} should pay</h1>
         </div>
         </Link>
       </div>
