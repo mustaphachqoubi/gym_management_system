@@ -12,10 +12,11 @@ import { FiTrash2, FiArchive } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Search from "../components/Search";
 import { useSelector } from "react-redux";
+import Filter from "../components/Filter";
 
 const Members = () => {
-  const [filterSize, setFilterSize] = useState("md:w-40 h-10");
-  const [filterContent, setFilterContent] = useState("hidden");
+  // const [filterSize, setFilterSize] = useState("md:w-40 h-10");
+  // const [filterContent, setFilterContent] = useState("hidden");
   const [addMemberContent, setAddMemberContent] = useState("hidden");
   const [moreBtn, setMoreBtn] = useState("hidden");
   const [selectedUser, setSelectedUser] = useState(null);
@@ -28,55 +29,7 @@ const Members = () => {
         <div className="bg-gray-300 w-full rounded-md flex flex-col md:flex-row  gap-4 justify-between items-start my-5 p-10">
           <Search />
           <div className="flex gap-4 w-full flex-end justify-end flex-col md:flex-row">
-            <div
-              className={`relative overflow-hidden flex items-center justify-center gap-2 cursor-pointer bg-gray-400 text-zinc-700 font-bold w-full ${filterSize} rounded-md`}
-            >
-              <div
-                onClick={() => {
-                  if (filterSize === "md:w-40 h-10") {
-                    setFilterSize("md:w-40 lg:w-80 h-80");
-                    setFilterContent("flex");
-                  } else {
-                    setFilterSize("md:w-40 h-10");
-                    setFilterContent("hidden");
-                  }
-                }}
-                className="absolute top-0 flex items-center w-full h-10 flex justify-center items-center hover:text-black"
-              >
-                <AiTwotoneFilter />
-                <button className="">Filter</button>
-              </div>
-
-              <div
-                className={`${filterContent} flex gap-4 justify-center flex-wrap w-full h-[80%] items-start mt-8 overflow-y-auto`}
-              >
-                <div className="flex flex-col items-center">
-                  <h1 className="text-lg text-black">age</h1>
-                  <div className="text-sm flex flex-col items-center">
-                    <h3 className="hover:text-slate-600 m-2">-18</h3>
-                    <h3 className="hover:text-slate-600 m-2">+20</h3>
-                    <h3 className="hover:text-slate-600 m-2">+30</h3>
-                    <h3 className="hover:text-slate-600 m-2">+50</h3>
-                    <h3 className="hover:text-slate-600 m-2">+60</h3>
-                  </div>
-                </div>
-                <div className="flex flex-col items-center">
-                  <h1 className="text-lg text-black">gender</h1>
-                  <div className="text-sm flex flex-col items-center">
-                    <h3 className="hover:text-slate-600 m-2">Male</h3>
-                    <h3 className="hover:text-slate-600 m-2">Female</h3>
-                  </div>
-                </div>
-                <div className="flex flex-col items-center">
-                  <h1 className="text-lg text-black">payed</h1>
-                  <div className="text-sm flex flex-col items-center">
-                    <h3 className="hover:text-slate-600 m-2">Yes</h3>
-                    <h3 className="hover:text-slate-600 m-2">No</h3>
-                    <h3 className="hover:text-slate-600 m-2">wait</h3>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Filter />
             <div
               onClick={() => {
                 setAddMemberContent("fixed");
@@ -233,6 +186,8 @@ const Members = () => {
           <div className="bg-slate-300 w-full mb-2 p-5 rounded-md h-full ">
             <form action="" onSubmit={(e) => e.preventDefault()}>
               <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 place-content-center md:p-8">
+                <div>
+                  <h3>First name</h3>
                 <input
                   type="text"
                   name="First name"
@@ -240,6 +195,9 @@ const Members = () => {
                   placeholder="First name"
                   className="border-2 border-black p-2 bg-slate-100 rounded-md w-full "
                 />
+                </div>
+                <div>
+                  <h3>Last name</h3>
                 <input
                   type="text"
                   name="Last anme"
@@ -247,6 +205,9 @@ const Members = () => {
                   placeholder="Last name"
                   className="border-2 border-black p-2 bg-slate-100 rounded-md w-full "
                 />
+                </div>
+                <div>
+                  <h3>Phone number</h3>
                 <input
                   type="text"
                   name="Phone"
@@ -254,6 +215,9 @@ const Members = () => {
                   placeholder="Phone number"
                   className="border-2 border-black p-2 bg-slate-100 rounded-md w-full "
                 />
+                </div>
+                <div>
+                  <h3>Email</h3>
                 <input
                   type="text"
                   name="Email"
@@ -261,6 +225,9 @@ const Members = () => {
                   placeholder="Email"
                   className="border-2 border-black p-2 bg-slate-100 rounded-md w-full "
                 />
+                </div>
+                <div>
+                  <h3>CIN</h3>
                 <input
                   type="text"
                   name="CIN number"
@@ -268,6 +235,9 @@ const Members = () => {
                   placeholder="CIN"
                   className="border-2 border-black p-2 bg-slate-100 rounded-md w-full "
                 />
+                </div>
+                <div>
+                  <h3>Gender</h3>
                 <select
                   name="Gender"
                   title="Gender"
@@ -276,6 +246,9 @@ const Members = () => {
                   <option value="">Male</option>
                   <option value="">Female</option>
                 </select>
+                </div>
+                <div>
+                  <h3>Birth date</h3>
                 <input
                   type="date"
                   name="Birth date"
@@ -283,6 +256,9 @@ const Members = () => {
                   placeholder="Birth date"
                   className="border-2 border-black p-2 bg-slate-100 rounded-md w-full "
                 />
+                </div>
+                <div>
+                  <h3>Date of joining</h3>
                 <input
                   type="text"
                   name="Date of joining"
@@ -290,6 +266,9 @@ const Members = () => {
                   placeholder="Date of joining"
                   className="border-2 border-black p-2 bg-slate-100 rounded-md w-full "
                 />
+                </div>
+                <div>
+                  <h3>membership</h3>
                 <select
                   name="membership"
                   title="membership"
@@ -299,6 +278,9 @@ const Members = () => {
                   <option value="">Silver (lifting)</option>
                   <option value="">Golden (Full)</option>
                 </select>
+                </div>
+                <div>
+                  <h3>face image</h3>
                 <input
                   type="file"
                   name="Face Image"
@@ -306,6 +288,9 @@ const Members = () => {
                   placeholder="face image"
                   className="border-2 border-black p-2 bg-slate-100 rounded-md w-full "
                 />
+                </div>
+                <div>
+                  <h3>CIN image</h3>
                 <input
                   type="file"
                   name="CIN Image"
@@ -313,6 +298,9 @@ const Members = () => {
                   placeholder="cin image"
                   className="border-2 border-black p-2 bg-slate-100 rounded-md w-full "
                 />
+                </div>
+                <div>
+                  <h3>Price</h3>
                 <input
                   type="number"
                   name="Price"
@@ -320,6 +308,9 @@ const Members = () => {
                   placeholder="Price"
                   className="border-2 border-black p-2 bg-slate-100 rounded-md w-full "
                 />
+                </div>
+                <div>
+                  <h3>Payed ?</h3>
                 <select
                   name="Payed?"
                   title="Payed?"
@@ -328,6 +319,9 @@ const Members = () => {
                   <option value="">Yes</option>
                   <option value="">No</option>
                 </select>
+                </div>
+                <div>
+                  <h3>Duration of membership</h3>
                 <select
                   name="Duration"
                   title="Duration"
@@ -339,6 +333,7 @@ const Members = () => {
                     </option>
                   ))}
                 </select>
+                </div>
               </div>
               <div className="md:px-8 flex flex-col md:flex-row justify-between items-center gap-4 md:mt-0 mt-4">
                 <div className="bg-blue-500 w-full md:w-20 h-10 font-bold flex justify-center items-center text-white rounded-md hover:bg-blue-700 cursor-pointer">

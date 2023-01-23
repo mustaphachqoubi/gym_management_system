@@ -24,10 +24,10 @@ const Search = () => {
       <input
         onChange={(e) => FilterBySearching(e.target.value.toLocaleLowerCase())}
         type="text"
-        className="border-2 border-black w-full bg-gray-300 rounded-l-md py-1 px-4 focus:outline-none placeholder:px-4"
+        className="border-2 border-black w-full bg-gray-300 rounded-md md:rounded-r-none md:rounded-l-md py-1 px-4 focus:outline-none placeholder:px-4"
         placeholder="Search..."
       />
-      <div className="bg-black text-white text-xl flex justify-center items-center px-4 cursor-pointer rounded-r-md">
+      <div className="bg-black text-white text-xl hidden md:flex justify-center items-center px-4 cursor-pointer rounded-r-md">
         <AiOutlineSearch />
       </div>
     </div>
