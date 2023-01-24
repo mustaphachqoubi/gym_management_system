@@ -14,6 +14,7 @@ function App() {
         <Route path='/members_should_pay' element={<Members_should_pay />} />
         <Route path='/stuff' element={<Stuff />} />
         <Route path='/wait' element={<Wait />} />
+        <Route path='/' element={<Wait />} />
       </Routes>
     </div>
   )
